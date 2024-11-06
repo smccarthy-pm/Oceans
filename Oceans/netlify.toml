@@ -1,5 +1,5 @@
 [build]
-  command = "npx ng --path/to/ng build"
+  command = "npx ng build"
   publish = "dist/Oceans"
 
 [build.environment]
