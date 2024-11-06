@@ -1,0 +1,6 @@
+[build]
+  command = "npx ng --path/to/ng build"
+  publish = "dist/Oceans"
+
+[build.environment]
+  NODE_VERSION = "16"
