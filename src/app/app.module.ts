@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { FinancialAdvisorInterfaceComponent } from './components/financial-advisor-interface/financial-advisor-interface.component';
+import { FinancialAdvisorInterfaceComponent } from './ai-interface/components/financial-advisor-interface/financial-advisor-interface.component';
+
 
 
 @NgModule({

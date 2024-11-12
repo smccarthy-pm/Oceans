@@ -18,7 +18,8 @@ interface Message {
   templateUrl: './financial-advisor-interface.component.html',
   styleUrls: ['./financial-advisor-interface.component.scss']
 })
-export class FinancialAdvisorInterfaceComponent {
+export class FinancialAdvisorInterfaceComponent
+ {
   messages: Message[] = [
     {
       type: 'system',
