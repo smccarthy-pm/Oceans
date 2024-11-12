@@ -5,6 +5,7 @@ import { FinancialAdvisorInterfaceComponent } from './ai-interface/components/fi
 
 
 
+
 @NgModule({
   declarations: [
     FinancialAdvisorInterfaceComponent, // Make sure to declare the component here
@@ -15,6 +16,6 @@ import { FinancialAdvisorInterfaceComponent } from './ai-interface/components/fi
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }
