@@ -14,6 +14,7 @@ interface Message {
 }
 
 @Component({
+  standalone: true,
   selector: 'app-financial-advisor-interface',
   templateUrl: './financial-advisor-interface.component.html',
   styleUrls: ['./financial-advisor-interface.component.scss']
