@@ -17,52 +17,54 @@
       </div>
   
       <!-- Messages Area -->
-      <div class="flex-1 overflow-y-auto p-6 space-y-4">
-        <div *ngFor="let message of messages; let index = index" [ngClass]="{'ml-auto text-white rounded-l-lg rounded-tr-lg': message.type === 'user', 'bg-white rounded-r-lg rounded-tl-lg shadow': message.type !== 'user'}" class="max-w-3xl p-4" [style.backgroundColor]="message.type === 'user' ? 'rgb(62, 149, 221)' : 'white'">
-          <div class="text-sm mb-1">
-            {{ message.type === 'user' ? 'You' : message.type === 'system' ? 'System' : 'AI Assistant' }}
-          </div>
-          <div>{{ message.content }}</div>
-          <<div *ngIf="message.data">
-            <div class="grid grid-cols-2 gap-2">
-              <div *ngFor="let key of getMessageKeys(message.data!)">
-                <div class="flex justify-between">
-                  <span class="text-gray-500">{{ key }}:</span>
-                  <span class="font-medium">{{ message.data[key] }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          
-  
-      <!-- Input Area -->
-      <div class="bg-white border-t p-4" style="border-color: rgb(56, 101, 142);">
-        <div class="max-w-3xl mx-auto flex gap-4">
-          <textarea [(ngModel)]="inputValue" class="flex-1 border rounded-lg p-3 h-20 resize-none focus:outline-none focus:ring-2" placeholder="Type your message here..."></textarea>
-          <button class="text-white px-6 py-2 rounded-lg transition-colors" style="background-color: rgb(62, 149, 221);" (click)="handleSendMessage()">
-            Send
-          </button>
-        </div>
-      </div>
+<div class="message-area">
+  <div *ngFor="let message of messages; let index = index" 
+       [ngClass]="{'user-message': message.type === 'user', 'ai-message': message.type !== 'user'}" 
+       class="message-container">
+    <div class="message-type">
+      <strong>{{ message.type === 'user' ? 'You' : 'AI Assistant' }}</strong>
     </div>
-  
-    <!-- Context Panel -->
-    <div class="w-64 bg-white border-l p-4" style="border-color: rgb(56, 101, 142);">
-      <h2 class="font-semibold mb-4" style="color: rgb(56, 101, 142);">Active Context</h2>
-      <div class="space-y-4">
-        <div class="p-3 bg-gray-50 rounded-lg">
-          <div class="text-sm font-medium" style="color: rgb(56, 101, 142);">Current Client</div>
-          <div class="text-lg">John Smith</div>
-          <div class="text-sm text-gray-500">Next Meeting: Tomorrow</div>
-        </div>
-        <div class="p-3 bg-gray-50 rounded-lg">
-          <div class="text-sm font-medium" style="color: rgb(56, 101, 142);">Quick Actions</div>
-          <button class="text-sm block mt-2 hover:text-blue-700" style="color: rgb(62, 149, 221);">Generate Report</button>
-          <button class="text-sm block mt-2 hover:text-blue-700" style="color: rgb(62, 149, 221);">Schedule Follow-up</button>
-          <button class="text-sm block mt-2 hover:text-blue-700" style="color: rgb(62, 149, 221);">Create Task</button>
+    <div class="message-content">
+      {{ message.content }}
+    </div>
+    <div *ngIf="message.data">
+      <div class="data-info">
+        <div *ngFor="let key of getMessageKeys(message.data!)">
+          <strong>{{ key }}:</strong> {{ message.data[key] }}
         </div>
       </div>
     </div>
   </div>
+</div>
+
+          
+          
+  
+      <!-- Input Area -->
+      <!-- Input Area -->
+<div class="input-area">
+  <textarea [(ngModel)]="inputValue" placeholder="Type your message here..." class="input-box"></textarea>
+  <button (click)="handleSendMessage()" class="send-button">Send</button>
+</div>
+
+
+   <!-- Active Context Area -->
+<div class="active-context">
+  <h2>Active Context</h2>
+  <div class="context-panel">
+    <div>
+      <strong>Current Client:</strong> John Smith
+    </div>
+    <div>
+      <strong>Next Meeting:</strong> Tomorrow
+    </div>
+    <div>
+      <h4>Quick Actions</h4>
+      <button>Generate Report</button>
+      <button>Schedule Follow-up</button>
+      <button>Create Task</button>
+    </div>
+  </div>
+</div>
+
   
