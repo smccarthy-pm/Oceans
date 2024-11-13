@@ -1,61 +1,70 @@
 <!-- financial-advisor-interface.component.html -->
-<div class="flex h-screen bg-gray-50">
-    <!-- Sidebar -->
-    <div style="background-color: rgb(54, 69, 119);" class="w-16 flex flex-col items-center py-4 space-y-6">
-      <!-- Use SVG icons or equivalent icon components here -->
-      <svg class="text-white w-6 h-6">...</svg>
-      <svg class="text-gray-300 w-6 h-6">...</svg>
-      <!-- Repeat for other icons... -->
-    </div>
-  
-    <!-- Main Chat Interface -->
-    <div class="flex-1 flex flex-col">
-      <!-- Header -->
-      <div class="bg-white border-b py-4 px-6" style="border-color: rgb(56, 101, 142);">
-        <h1 class="text-xl font-semibold" style="color: rgb(56, 101, 142);">AI Assistant</h1>
-        <p class="text-sm text-gray-500">Connected to CRM and Portfolio Systems</p>
-      </div>
-  
-   <!-- Messages Area -->
-<div class="message-area">
-  <mat-card class="message-bubble" *ngFor="let message of messages">
-    <mat-card-title>{{ message.type === 'user' ? 'You' : 'AI Assistant' }}</mat-card-title>
-    <mat-card-content>
-      {{ message.content }}
-    </mat-card-content>
-    <div *ngIf="message.data">
-      <div *ngFor="let key of getMessageKeys(message.data!)">
-        <strong>{{ key }}:</strong> {{ message.data[key] }}
-      </div>
-    </div>
-  </mat-card>
-</div>
+<div class="layout-container">
+  <!-- Sidebar Area -->
+  <div class="sidebar">
+    <mat-nav-list>
+      <mat-list-item>
+        <mat-icon>chat</mat-icon>
+        <span>Chat</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon>calendar_today</mat-icon>
+        <span>Tasks</span>
+      </mat-list-item>
+      <!-- Add other navigation items as needed -->
+    </mat-nav-list>
+  </div>
 
-<!-- Input Area -->
-<div class="input-area">
-  <mat-form-field appearance="outline" class="input-box">
-    <textarea matInput [(ngModel)]="inputValue" placeholder="Type your message here..."></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="handleSendMessage()" class="send-button">Send</button>
-</div>
+  <!-- Main Chat Area -->
+  <div class="main-chat-area">
+    <!-- Header -->
+    <div class="header">
+      <h1>AI Assistant</h1>
+      <p>Connected to CRM and Portfolio Systems</p>
+    </div>
 
-<!-- Active Context Area -->
-<div class="active-context">
-  <h2>Active Context</h2>
-  <mat-card class="context-panel">
-    <mat-card-content>
-      <div>
-        <strong>Current Client:</strong> John Smith
-      </div>
-      <div>
-        <strong>Next Meeting:</strong> Tomorrow
-      </div>
-      <div>
-        <h4>Quick Actions</h4>
-        <button mat-stroked-button color="primary">Generate Report</button>
-        <button mat-stroked-button color="primary">Schedule Follow-up</button>
-        <button mat-stroked-button color="primary">Create Task</button>
-      </div>
-    </mat-card-content>
-  </mat-card>
+    <!-- Messages Area -->
+    <div class="message-area">
+      <mat-card class="message-bubble" *ngFor="let message of messages">
+        <mat-card-title>{{ message.type === 'user' ? 'You' : 'AI Assistant' }}</mat-card-title>
+        <mat-card-content>
+          {{ message.content }}
+        </mat-card-content>
+        <div *ngIf="message.data">
+          <div *ngFor="let key of getMessageKeys(message.data!)">
+            <strong>{{ key }}:</strong> {{ message.data[key] }}
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <mat-form-field appearance="outline" class="input-box">
+        <textarea matInput [(ngModel)]="inputValue" placeholder="Type your message here..."></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="handleSendMessage()" class="send-button">Send</button>
+    </div>
+  </div>
+
+  <!-- Active Context Area (Right Panel) -->
+  <div class="active-context">
+    <mat-card class="context-panel">
+      <mat-card-content>
+        <h2>Active Context</h2>
+        <div>
+          <strong>Current Client:</strong> John Smith
+        </div>
+        <div>
+          <strong>Next Meeting:</strong> Tomorrow
+        </div>
+        <div>
+          <h4>Quick Actions</h4>
+          <button mat-stroked-button color="primary">Generate Report</button>
+          <button mat-stroked-button color="primary">Schedule Follow-up</button>
+          <button mat-stroked-button color="primary">Create Task</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

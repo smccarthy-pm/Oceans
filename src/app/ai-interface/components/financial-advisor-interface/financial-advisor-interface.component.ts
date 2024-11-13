@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list'; // Import MatListModule for mat-list-item
 
 
 interface MessageData {
@@ -27,14 +29,14 @@ interface Message {
   standalone: true,
   selector: 'app-financial-advisor-interface',
   imports: [
-    CommonModule, // Provides ngClass, *ngFor, and *ngIf
-    FormsModule,
     CommonModule, 
     FormsModule,  
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
+    MatListModule, // Add MatListModule to resolve mat-list-item
   ],
   templateUrl: './financial-advisor-interface.component.html',
   styleUrls: ['./financial-advisor-interface.component.scss']
