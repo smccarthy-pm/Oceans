@@ -16,55 +16,46 @@
         <p class="text-sm text-gray-500">Connected to CRM and Portfolio Systems</p>
       </div>
   
-      <!-- Messages Area -->
+   <!-- Messages Area -->
 <div class="message-area">
-  <div *ngFor="let message of messages; let index = index" 
-       [ngClass]="{'user-message': message.type === 'user', 'ai-message': message.type !== 'user'}" 
-       class="message-container">
-    <div class="message-type">
-      <strong>{{ message.type === 'user' ? 'You' : 'AI Assistant' }}</strong>
-    </div>
-    <div class="message-content">
+  <mat-card class="message-bubble" *ngFor="let message of messages">
+    <mat-card-title>{{ message.type === 'user' ? 'You' : 'AI Assistant' }}</mat-card-title>
+    <mat-card-content>
       {{ message.content }}
-    </div>
+    </mat-card-content>
     <div *ngIf="message.data">
-      <div class="data-info">
-        <div *ngFor="let key of getMessageKeys(message.data!)">
-          <strong>{{ key }}:</strong> {{ message.data[key] }}
-        </div>
+      <div *ngFor="let key of getMessageKeys(message.data!)">
+        <strong>{{ key }}:</strong> {{ message.data[key] }}
       </div>
     </div>
-  </div>
+  </mat-card>
 </div>
 
-          
-          
-  
-      <!-- Input Area -->
-      <!-- Input Area -->
+<!-- Input Area -->
 <div class="input-area">
-  <textarea [(ngModel)]="inputValue" placeholder="Type your message here..." class="input-box"></textarea>
-  <button (click)="handleSendMessage()" class="send-button">Send</button>
+  <mat-form-field appearance="outline" class="input-box">
+    <textarea matInput [(ngModel)]="inputValue" placeholder="Type your message here..."></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="handleSendMessage()" class="send-button">Send</button>
 </div>
 
-
-   <!-- Active Context Area -->
+<!-- Active Context Area -->
 <div class="active-context">
   <h2>Active Context</h2>
-  <div class="context-panel">
-    <div>
-      <strong>Current Client:</strong> John Smith
-    </div>
-    <div>
-      <strong>Next Meeting:</strong> Tomorrow
-    </div>
-    <div>
-      <h4>Quick Actions</h4>
-      <button>Generate Report</button>
-      <button>Schedule Follow-up</button>
-      <button>Create Task</button>
-    </div>
-  </div>
+  <mat-card class="context-panel">
+    <mat-card-content>
+      <div>
+        <strong>Current Client:</strong> John Smith
+      </div>
+      <div>
+        <strong>Next Meeting:</strong> Tomorrow
+      </div>
+      <div>
+        <h4>Quick Actions</h4>
+        <button mat-stroked-button color="primary">Generate Report</button>
+        <button mat-stroked-button color="primary">Schedule Follow-up</button>
+        <button mat-stroked-button color="primary">Create Task</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
-
-  

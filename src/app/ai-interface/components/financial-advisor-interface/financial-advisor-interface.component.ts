@@ -2,6 +2,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 interface MessageData {
   [key: string]: string | undefined; // Index signature added
@@ -23,7 +28,13 @@ interface Message {
   selector: 'app-financial-advisor-interface',
   imports: [
     CommonModule, // Provides ngClass, *ngFor, and *ngIf
-    FormsModule,  // Provides ngModel
+    FormsModule,
+    CommonModule, 
+    FormsModule,  
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   templateUrl: './financial-advisor-interface.component.html',
   styleUrls: ['./financial-advisor-interface.component.scss']
