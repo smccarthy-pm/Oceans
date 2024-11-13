@@ -1,98 +1,95 @@
+$primary-color: #0065ff; // Define a SCSS variable for primary color
+$border-radius: 8px;
+
 .chat-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    background: #f5f5f5;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #f5f5f5;
+}
+
+.message {
+  margin-bottom: 1rem;
+}
+
+.agent-message {
+  text-align: left;
+  color: green;
+}
+
+.system-message {
+  text-align: center;
+  color: gray;
+}
+
+.input-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.message-container {
+  background-color: #fff;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  max-width: 80%;
+}
+
+.user-message {
+  background-color: #d1e7ff; /* Light blue for user */
+  margin-left: auto;
+}
+
+.ai-message {
+  background-color: #f8f9fa; /* Light grey for AI */
+  margin-right: auto;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.input-box {
+  flex: 1;
+  padding: 10px;
+  border-radius: $border-radius;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  border-radius: $border-radius;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
   }
-  
-  .message {
-    margin-bottom: 1rem;
+}
+
+.active-context {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.context-panel button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: $border-radius;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
   }
-  
-  .user-message {
-    text-align: right;
-    color: blue;
-  }
-  
-  .agent-message {
-    text-align: left;
-    color: green;
-  }
-  
-  .system-message {
-    text-align: center;
-    color: gray;
-  }
-  
-  .input-container {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .message-container {
-    background-color: #fff;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin-bottom: 15px;
-    max-width: 80%;
-  }
-  
-  .user-message {
-    background-color: #d1e7ff; /* Light blue for user */
-    margin-left: auto;
-  }
-  
-  .ai-message {
-    background-color: #f8f9fa; /* Light grey for AI */
-    margin-right: auto;
-  }
-  
-  .input-area {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .input-box {
-    flex: 1;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    border: 1px solid #ccc;
-    margin-right: 10px;
-  }
-  
-  .send-button {
-    padding: 10px 20px;
-    border-radius: var(--border-radius);
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .send-button:hover {
-    background-color: darken(var(--primary-color), 10%);
-  }
-  
-  .active-context {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .context-panel button {
-    margin-top: 10px;
-    padding: 8px 12px;
-    border-radius: var(--border-radius);
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .context-panel button:hover {
-    background-color: darken(var(--primary-color), 10%);
-  }
-  
+}
