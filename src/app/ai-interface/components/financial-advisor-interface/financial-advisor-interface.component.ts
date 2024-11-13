@@ -3,16 +3,19 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+interface MessageData {
+  [key: string]: string | undefined; // Index signature added
+  accountBalance?: string;
+  recentChanges?: string;
+  upcomingActions?: string;
+  lastReview?: string;
+}
+
 interface Message {
   type: 'system' | 'user' | 'agent';
   content: string;
   timestamp: string;
-  data?: {
-    accountBalance?: string;
-    recentChanges?: string;
-    upcomingActions?: string;
-    lastReview?: string;
-  };
+  data?: MessageData;
 }
 
 @Component({
@@ -25,13 +28,8 @@ interface Message {
   templateUrl: './financial-advisor-interface.component.html',
   styleUrls: ['./financial-advisor-interface.component.scss']
 })
-export class FinancialAdvisorInterfaceComponent{
-  objectKeys = Object.keys;
-    // Add this line to reference Object.keys
+export class FinancialAdvisorInterfaceComponent {
 
-  // Other properties and methods
-
- 
   messages: Message[] = [
     {
       type: 'system',
@@ -57,6 +55,11 @@ export class FinancialAdvisorInterfaceComponent{
   ];
 
   inputValue: string = '';
+
+  // Helper method to get the keys of the data object
+  getMessageKeys(data: MessageData): string[] {
+    return Object.keys(data);
+  }
 
   handleSendMessage() {
     if (this.inputValue.trim()) {
