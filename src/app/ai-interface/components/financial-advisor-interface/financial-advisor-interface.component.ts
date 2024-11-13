@@ -1,5 +1,7 @@
 // financial-advisor-interface.component.ts
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 interface Message {
   type: 'system' | 'user' | 'agent';
@@ -16,11 +18,20 @@ interface Message {
 @Component({
   standalone: true,
   selector: 'app-financial-advisor-interface',
+  imports: [
+    CommonModule, // Provides ngClass, *ngFor, and *ngIf
+    FormsModule,  // Provides ngModel
+  ],
   templateUrl: './financial-advisor-interface.component.html',
   styleUrls: ['./financial-advisor-interface.component.scss']
 })
-export class FinancialAdvisorInterfaceComponent
- {
+export class FinancialAdvisorInterfaceComponent{
+  objectKeys = Object.keys;
+    // Add this line to reference Object.keys
+
+  // Other properties and methods
+
+ 
   messages: Message[] = [
     {
       type: 'system',
